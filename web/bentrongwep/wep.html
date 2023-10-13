@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="chinhmau.css">
+    <title>Bán Hàng Bình Đẳng</title>
+    <style>
+        /* Phần chung */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        /* Định dạng phần "Vũ Trụ" */
+        #vu-tru-link {
+            background-color: #ff6600;
+            color: #ffffff;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        #vu-tru-link a {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            align-items: center;
+        }
+
+        #vu-tru-link i {
+            margin-left: 5px;
+        }
+
+        /* Định dạng navbar */
+        nav {
+            background-color: #008CBA;
+            color: #fff;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+        }
+
+        nav input {
+            border: none;
+            padding: 5px;
+        }
+
+        nav .search-icon {
+            font-size: 20px;
+        }
+
+        nav button {
+            background-color: #F97E0E;
+            color: #fff;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Địa chỉ form */
+        .adress-from {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.6);
+            top: 0;
+            left: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .adress-from-content {
+            width: 500px;
+            height: 480px;
+            background-color: #43a1c0;
+            border-radius: 5px;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: center;
+        }
+
+        .adress-from-content form {
+            padding: 12px 40px;
+        }
+
+        .adress-from-content h2 {
+            font-size: 16px;
+            padding: 2px 0;
+            border-bottom: 1px solid #fff;
+            position: relative;
+        }
+
+        .adress-from-content h2 span {
+            display: block;
+            position: absolute;
+            height: 70px;
+            padding: 0 6px;
+            right: 12px;
+            cursor: pointer;
+            top: 50%;
+            transform: translateY(-50%);
+            line-height: 50px;
+        }
+
+        .adress-from-content form p {
+            font-size: 16px;
+        }
+
+        .adress-from-content form input,
+        .adress-from-content form select {
+            height: 45px;
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+            border: 1px solid #fff;
+            padding: 6px;
+            border-radius: 5px;
+        }
+
+        .adress-from-content form button {
+            margin: 20px;
+            height: 40px;
+            width: 80%;
+            cursor: pointer;
+            background-color: #F97E0E;
+            outline: none;
+            border: none;
+            color: #fff;
+        }
+
+        /* Menu bar */
+        .menu-bar {
+            background-color: #008CBA;
+            margin-top: 10px;
+            border-radius: 5px;
+            padding: 10px 0;
+        }
+
+        .menu-bar-content ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .menu-bar-content li {
+            position: relative;
+        }
+
+        .menu-bar-content a {
+            text-decoration: none;
+            color: #fff;
+            display: flex;
+            align-items: center;
+        }
+
+        .menu-bar-content a i {
+            margin-right: 5px;
+        }
+
+        .phu-kien-list {
+            position: absolute;
+            top: 40px;
+            left: 0;
+            background-color: #008CBA;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .menu-bar-content li:hover .phu-kien-list {
+            display: block;
+        }
+
+        .phu-kien-list ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .phu-kien-list li {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .phu-kien-list a {
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li id="vu-tru-link" onclick="showAddressForm()">Vũ Trụ <i class="fas fa-caret-down"></i></li>
+                <li>
+                    <input type="text" class="search-input" placeholder="Bạn Tìm Gì....">
+                    <i class="fas fa-search search-icon"></i>
+                </li>
+                <li><a href="#">Giỏ Hàng <i class="fas fa-shopping-cart"></i></a></li>
+                <li><a href="#">Lịch Sử Đơn Hàng</a></li>
+                <li><a href="#">Mua Thẻ Điện Thoại</a></li>
+                <li><a href="#">Hỏi Đáp</a></li>
+                <li><a href="#">Đăng Xuất</a></li>
+            </ul>
+        </nav>
+        <div class="adress-from" id="address-form">
+            <div class="adress-from-content">
+                <h2>Chọn Địa Chỉ Nhận Hàng <span class="text-left" onclick="hideAddressForm()">X Đóng</span></h2>
+                <form action="">
+                    <p>Chọn Đầy Đủ Địa Chỉ Để Biết Chính Xác Thời Gian Giao</p>
+                    <select name="" id="">
+                        <option value="#">--Chọn Địa Chỉ Nhận Hàng--</option>
+                        <option value="#">--Tphcm--</option>
+                    </select>
+                    <select name="" id="">
+                        <option value="#">--Chọn Quận\Huyện--</option>
+                        <option value="#">--Tphcm--</option>
+                    </select>
+                    <select name="" id="">
+                        <option value="#">--Chọn Xã\Phường--</option>
+                        <option value="#">--Tphcm--</option>
+                    </select>
+                    <input type="text" placeholder="Số Nhà , Tên Đường">
+                    <button>Xác Nhận</button>
+                </form>
+            </div>
+        </div>
+        <section class="menu-bar">
+            <div class="container">
+                <div class="menu-bar-content">
+                    <ul>
+                        <li><a href="#"><i class="fas fa-mobile-alt"></i> Điện Thoại</a></li>
+                        <li><a href="#"><i class="fas fa-laptop"></i> Laptop</a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> Đồng Hồ</a></li>
+                        <li><a href="#"><i class="fas fa-desktop"></i> Máy Tính Cũ</a></li>
+                        <li><a href="#"><i class="fas fa-tablet-alt"></i> Tablet</a></li>
+                        <li class="has-submenu">
+                            <a href="#"><i class="fas fa-headphones"></i> Phụ Kiện <i class="fas fa-caret-down"></i></a>
+                            <div class="phu-kien-list">
+                                <ul>
+                                    <li><a href="#">Phụ Kiện 1</a></li>
+                                    <li><a href="#">Phụ Kiện 2</a></li>
+                                    <li><a href="#">Phụ Kiện 3</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script>
+        function showAddressForm() {
+            document.getElementById("address-form").style.display = "flex";
+        }
+
+        function hideAddressForm() {
+            document.getElementById("address-form").style.display = "none";
+        }
+    </script>
+    <script>
+       var phuKienListVisible = false;
+
+function showPhuKienList() {
+    document.getElementById("phuKienList").style.display = "block";
+}
+
+function hidePhuKienList() {
+    if (!phuKienListVisible) {
+        document.getElementById("phuKienList").style.display = "none";
+    }
+}
+
+// Xử lý sự kiện khi rời chuột khỏi khung phụ kiện
+document.getElementById("phuKienList").addEventListener("mouseleave", function() {
+    if (!phuKienListVisible) {
+        hidePhuKienList();
+    }
+});
+
+// Xử lý sự kiện khi vào lại khung phụ kiện
+document.getElementById("phuKienList").addEventListener("mouseenter", function() {
+    showPhuKienList();
+});
+    </script>
+</body>
+</html>

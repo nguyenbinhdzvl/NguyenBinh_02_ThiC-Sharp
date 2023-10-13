@@ -1,0 +1,207 @@
+/* Phần chung */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* Định dạng phần "Vũ Trụ" */
+#vu-tru-link {
+    background-color: #ff6600;
+    color: #ffffff;
+    padding: 10px 20px;
+    cursor: pointer; /* Cho phép sử dụng con trỏ để chỉ ra liên kết */
+}
+
+#vu-tru-link a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+}
+
+#vu-tru-link i {
+    margin-left: 5px;
+}
+
+/* Định dạng navbar */
+nav {
+    background-color: #008CBA;
+    color: #fff;
+    padding: 10px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+
+nav input {
+    border: none;
+    padding: 5px;
+}
+
+nav .search-icon {
+    font-size: 20px;
+}
+
+nav button {
+    background-color: #F97E0E;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Địa chỉ form */
+.adress-from {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    top: 0;
+    left: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.adress-from-content {
+    width: 500px;
+    height: 480px;
+    background-color: #43a1c0;
+    border-radius: 5px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.adress-from-content form {
+    padding: 12px 40px;
+}
+
+.adress-from-content h2 {
+    font-size: 16px;
+    padding: 2px 0;
+    border-bottom: 1px solid #fff;
+    position: relative;
+}
+
+.adress-from-content h2 span {
+    display: block;
+    position: absolute;
+    height: 70px;
+    padding: 0 6px; /* Đã sửa thành 6px */
+    right: 12px;
+    cursor: pointer;
+    top: 50%;
+    transform: translateY(-50%);
+    line-height: 50px; /* Đã sửa thành 50px */
+}
+
+.adress-from-content form p {
+    font-size: 16px;
+}
+
+.adress-from-content form input,
+.adress-from-content form select {
+    height: 45px;
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    border: 1px solid #fff;
+    padding: 6px;
+    border-radius: 5px;
+}
+
+.adress-from-content form button {
+    margin: 20px;
+    height: 40px;
+    width: 80%;
+    cursor: pointer;
+    background-color: #F97E0E;
+    outline: none;
+    border: none;
+    color: #fff;
+}
+
+/* Menu bar */
+.menu-bar {
+    background-color: yellowgreen;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.menu-bar-content ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    justify-content: space-between;
+}
+
+.menu-bar-content li {
+    margin-right: 20px;
+}
+
+.menu-bar-content a {
+    text-decoration: none;
+    color: #000;
+    display: flex;
+    align-items: center;
+}
+
+.menu-bar-content a i {
+    margin-right: 5px;
+}
+
+/* Định dạng menu "thêm" */
+.menu-bar-content ul li {
+position: relative;
+   
+}
+
+
+
+    .them {
+        position: absolute;
+        background-color: rgb(79, 0, 0);
+        width: 300px;
+        padding: 10px;
+        height: auto;
+        left: 0;
+        top: 100%;
+        padding: 12px
+    }
+    
+
+.them ul {
+    display: flex;
+    flex-direction: column;
+}
+.them ul li{
+    padding: 6px 0;
+}
+.them ul li:hover a{
+    color: #000;
+}
